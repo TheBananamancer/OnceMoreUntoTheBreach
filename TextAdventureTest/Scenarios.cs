@@ -4,6 +4,11 @@ namespace textAdventure2
 {
     public class Scenarios
     {
+        private const string North = "north";
+        private const string East = "east";
+        private const string West = "west";
+        private const string South = "south";
+
         public static void FirstScenario(string playerName)
         {
             Console.WriteLine($"\n{playerName}, you find yourself at a crossroads.");
@@ -11,10 +16,6 @@ namespace textAdventure2
             Console.WriteLine("Which way do you go? (north/east/west/south)");
 
             string choice = Console.ReadLine().ToLower();
-            string North = "north";
-            string East = "east";
-            string West = "west";
-            string South = "south";
 
             if (choice == North)
             {
