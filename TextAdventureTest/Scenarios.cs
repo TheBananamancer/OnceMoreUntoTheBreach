@@ -99,8 +99,8 @@ namespace textAdventure2
             Console.WriteLine("Do you cross the bridge or take the boat? (bridge/boat)");
 
             string choice = Console.ReadLine().ToLower();
-            string Bridge = "bridge";
-            string Boat = "boat";
+            const string Bridge = "bridge";
+            const string Boat = "boat";
 
             if (choice == Bridge)
             {
