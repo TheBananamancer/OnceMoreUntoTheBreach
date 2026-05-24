@@ -70,9 +70,9 @@ namespace textAdventure2
             Console.WriteLine("Do you visit the merchant, listen to the storyteller, or head to the tower? (merchant/storyteller/tower)");
 
             string choice = Console.ReadLine().ToLower();
-            string Merchant = "merchant";
-            string Storyteller = "storyteller";
-            string Tower = "tower";
+            const string Merchant = "merchant";
+            const string Storyteller = "storyteller";
+            const string Tower = "tower";
 
             if (choice == Merchant)
             {
