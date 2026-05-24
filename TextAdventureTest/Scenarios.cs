@@ -3,10 +3,11 @@ using System;
 namespace textAdventure2
 {
     public class Scenarios
-    {\n        public static void FirstScenario(string playerName)
+    {
+        public static void FirstScenario(string playerName)
         {
             Console.WriteLine($"\n{playerName}, you find yourself at a crossroads.");
-            Console.WriteLine("A dark forest lies to the north, a shimmering lake to the east, and a field of wheat to the west.");
+            Console.WriteLine("A dark forest lies to the north, a shimmering lake to the east, a field of wheat to the west, and a swamp to the south.");
             Console.WriteLine("Which way do you go? (north/east/west/south)");
 
             string choice = Console.ReadLine().ToLower();
@@ -14,124 +15,103 @@ namespace textAdventure2
             string East = "east";
             string West = "west";
             string South = "south";
-            string Yes = "yes";
-            string No = "no";
 
             if (choice == North)
             {
-                Console.WriteLine("You enter the dark forest. The trees loom tall and menacing.");
-                Console.WriteLine("A goblin jumps out from behind a tree!\n");
-                Program.GoblinEncounter(playerName);
-
+                Console.WriteLine("You enter the dark forest. It's eerily quiet, and the path ahead is unclear.");
             }
             else if (choice == East)
             {
-                Console.WriteLine("You approach the shimmering lake. The water looks inviting.");
-                Console.WriteLine("Do you want to take a swim? (yes/no)");
-                string swimChoice = Console.ReadLine().ToLower();
-
-                if (swimChoice == Yes)
-                {
-                    Console.WriteLine("You dive into the lake and feel refreshed. You find a hidden treasure chest!");
-                    Console.WriteLine("Congratulations, you found treasure!");
-                }
-                else if (swimChoice == No)
-                {
-                    Console.WriteLine("You decide not to swim and continue on your journey.");
-                }
-                else
-                {
-                    Console.WriteLine("Invalid choice. You hesitate and decide to move on.");
-                }
+                Console.WriteLine("You approach the shimmering lake. The water is crystal clear, and you can see fish swimming below.");
             }
             else if (choice == West)
             {
-                Console.WriteLine("You enter a field of wheat. The wind whispers through the stalks.");
-                Console.WriteLine("You see a scarecrow in the distance. As you approach, it starts to move!\n");
-                Program.ScarecrowEncounter(playerName);
-
+                Console.WriteLine("You walk into the field of wheat. The wind gently blows through the stalks.");
             }
             else if (choice == South)
             {
-                Console.WriteLine("You head south and find a path leading back to town. It seems safe.");
-                Console.WriteLine("You arrive at the town safely.");
+                Console.WriteLine("You cautiously step into the swamp. The ground is soft and muddy.");
             }
             else
             {
-                Console.WriteLine("Invalid direction. You wander aimlessly.");
+                Console.WriteLine("Invalid choice. You remain at the crossroads.");
             }
         }
 
         public static void SecondScenario(string playerName)
         {
-            Console.WriteLine($"\n{playerName}, you come across a rickety bridge over a deep ravine.");
-            Console.WriteLine("Do you dare to cross, or find another way? (cross/another)");
+            Console.WriteLine($"\n{playerName}, you are standing in front of a large, ancient oak tree.");
+            Console.WriteLine("You see a winding path leading up the hill and a dark cave entrance nearby.");
+            Console.WriteLine("Do you follow the path or enter the cave? (path/cave)");
 
             string choice = Console.ReadLine().ToLower();
+            string Path = "path";
+            string Cave = "cave";
 
-            if (choice == "cross")
+            if (choice == Path)
             {
-                Console.WriteLine("You carefully cross the bridge. Halfway across, a plank breaks!");
-                Console.WriteLine("You manage to grab onto the side and pull yourself to safety.");
-                Console.WriteLine("You made it across, but it was a close call!");
+                Console.WriteLine("You start following the winding path up the hill. The view becomes increasingly stunning.");
             }
-            else if (choice == "another")
+            else if (choice == Cave)
             {
-                Console.WriteLine("You decide to find another way around. After hours of searching, you find a safer path.");
-                Console.WriteLine("You lose valuable time, but you avoid the dangerous bridge.");
+                Console.WriteLine("You cautiously enter the dark cave. The air is cold and damp.");
             }
             else
             {
-                Console.WriteLine("Invalid choice. You stand there, indecisive.");
+                Console.WriteLine("Invalid choice. You remain by the oak tree, unsure of what to do.");");
             }
         }
 
         public static void ThirdScenario(string playerName)
         {
-            Console.WriteLine($"\n{playerName}, you enter a mysterious cave.");
-            Console.WriteLine("The air is cold and damp. You hear strange noises echoing within.");
-            Console.WriteLine("Do you proceed deeper, or turn back? (deeper/back)");
+            Console.WriteLine($"\n{playerName}, you arrive at a bustling town square.");
+            Console.WriteLine("You see a merchant selling goods, a group of people gathered around a storyteller, and a sign pointing towards a mysterious tower.");
+            Console.WriteLine("Do you visit the merchant, listen to the storyteller, or head to the tower? (merchant/storyteller/tower)");
 
             string choice = Console.ReadLine().ToLower();
+            string Merchant = "merchant";
+            string Storyteller = "storyteller";
+            string Tower = "tower";
 
-            if (choice == "deeper")
+            if (choice == Merchant)
             {
-                Console.WriteLine("You venture deeper into the cave. The darkness surrounds you.");
-                Console.WriteLine("Suddenly, you stumble upon a hidden chamber!");
-                Console.WriteLine("Inside, you find an ancient artifact. Congratulations!");
+                Console.WriteLine("You approach the merchant and browse their wares. You find a curious item that catches your eye.");
             }
-            else if (choice == "back")
+            else if (choice == Storyteller)
             {
-                Console.WriteLine("You decide to turn back. The cave feels too dangerous.");
-                Console.WriteLine("You leave the cave and continue your journey elsewhere.");
+                Console.WriteLine("You listen to the storyteller's tale. It's a captivating story filled with adventure and magic.");
+            }
+            else if (choice == Tower)
+            {
+                Console.WriteLine("You head towards the mysterious tower. It looms tall and ominous in the distance.");
             }
             else
             {
-                Console.WriteLine("Invalid choice. You hesitate, unsure of what to do.");
+                Console.WriteLine("Invalid choice. You wander aimlessly in the town square.");
             }
         }
 
         public static void FourthScenario(string playerName)
         {
-            Console.WriteLine($"\n{playerName}, you are walking and see a hooded figure in the distance. As you approach closer, the figure vanishes.");
-            Console.WriteLine("You notice a small object where the figure once stood.");
-            Console.WriteLine("Do you pick it up, or ignore it? (pickup/ignore)");
+            Console.WriteLine($"\n{playerName}, you stand before a rushing river.");
+            Console.WriteLine("A rickety bridge spans the river, and a small boat is tied to the bank.");
+            Console.WriteLine("Do you cross the bridge or take the boat? (bridge/boat)");
 
             string choice = Console.ReadLine().ToLower();
+            string Bridge = "bridge";
+            string Boat = "boat";
 
-            if (choice == "pickup")
+            if (choice == Bridge)
             {
-                Console.WriteLine("You pick up the object. It is a small, ornate key.");
-                Console.WriteLine("Perhaps it unlocks something important...");
+                Console.WriteLine("You carefully cross the rickety bridge. It creaks and sways with each step.");
             }
-            else if (choice == "ignore")
+            else if (choice == Boat)
             {
-                Console.WriteLine("You decide to ignore the object and continue on your path.");
-                Console.WriteLine("You wonder what it could have been, but you move on.");
+                Console.WriteLine("You untie the small boat and set off down the river. The current is strong.");
             }
             else
             {
-                Console.WriteLine("Invalid choice. You hesitate and the moment passes.");
+                Console.WriteLine("Invalid choice. You remain by the riverbank, contemplating your next move.");
             }
         }
     }
