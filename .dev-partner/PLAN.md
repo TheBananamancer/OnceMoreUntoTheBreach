@@ -9,10 +9,11 @@
 5.  Process the choice and display the outcome.
 6.  Present the second scenario.
 7.  Present the third scenario.
+8.  Present the fourth scenario.
 
 ## Planned Features
 
-*   Multiple scenarios and choices.
+*   Multiple scenarios and choices. (Implemented 4 scenarios)
 *   Inventory system.
 *   Combat system.
 *   Game over conditions.
