@@ -46,8 +46,8 @@ namespace textAdventure2
             Console.WriteLine("Do you follow the path or enter the cave? (path/cave)");
 
             string choice = Console.ReadLine().ToLower();
-            string Path = "path";
-            string Cave = "cave";
+            const string Path = "path";
+            const string Cave = "cave";
 
             if (choice == Path)
             {
