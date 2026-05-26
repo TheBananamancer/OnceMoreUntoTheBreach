@@ -16,36 +16,26 @@ namespace textAdventure2
 
         static void Main(string[] args)
         {
-            gameTitle();
+            GameTitle();
             string playerName = GetPlayerName();
             Scenarios.FirstScenario(playerName);
             Scenarios.SecondScenario(playerName);
             Scenarios.ThirdScenario(playerName);
             Scenarios.FourthScenario(playerName);
-
-            Console.WriteLine("\nThanks for playing!");
         }
 
-        static void gameTitle()
+        static void GameTitle()
         {
-            Console.WriteLine("Welcome to the Text Adventure Game!");
-            Console.WriteLine("----------------------------------");
+            Console.WriteLine("======================================");
+            Console.WriteLine("|        Text Adventure Game         |");
+            Console.WriteLine("======================================\n");
         }
 
         static string GetPlayerName()
         {
             Console.Write("Enter your name: ");
             string playerName = Console.ReadLine();
-
-            while (string.IsNullOrEmpty(playerName))
-            {
-                Console.WriteLine("Name cannot be empty. Please enter your name:");
-                playerName = Console.ReadLine();
-            }
-
             return playerName;
         }
-
-
     }
 }

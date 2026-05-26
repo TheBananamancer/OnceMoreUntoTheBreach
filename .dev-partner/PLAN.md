@@ -2,7 +2,7 @@
 
 ## Core Game Loop
 
-1.  Display game title and introduction.
+1.  Display game title and introduction. (Implemented)
 2.  Get player's name (with validation).
 3.  Present the first scenario.
 4.  Get player's choice.
@@ -14,7 +14,7 @@
 ## Planned Features
 
 *   Multiple scenarios and choices. (Implemented 4 scenarios)
-*   Inventory system.
+*   Inventory system. (Initial implementation added)
 *   Combat system.
 *   Game over conditions.
 *   Score tracking.
