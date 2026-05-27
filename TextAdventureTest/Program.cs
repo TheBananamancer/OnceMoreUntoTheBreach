@@ -19,64 +19,28 @@ namespace textAdventure2
             GameTitle();
             string playerName = GetPlayerName();
             Inventory inventory = new Inventory();
-            Scenarios.FirstScenario(playerName, inventory);
-            Scenarios.SecondScenario(playerName, inventory);
-            Scenarios.ThirdScenario(playerName, inventory);
-            Scenarios.FourthScenario(playerName, inventory);
-        }
-
-        static void GameTitle()
-        {
-            Console.WriteLine("======================================");
-            Console.WriteLine("|        Text Adventure Game         |");
-            Console.WriteLine("======================================\n");
+            Scenarios.FirstScenario(playerName);
         }
 
         static string GetPlayerName()
         {
-            Console.Write("Enter your name: ");
+            Console.WriteLine("\nWhat is your name, adventurer?");
             string playerName = Console.ReadLine();
+
+            while (string.IsNullOrEmpty(playerName))
+            {
+                Console.WriteLine("Please enter a valid name:");
+                playerName = Console.ReadLine();
+            }
+
             return playerName;
         }
-    }
 
-    class Inventory
-    {
-        public List<string> Items { get; set; } = new List<string>();
-
-        public void AddItem(string item)
+        static void GameTitle()
         {
-            Items.Add(item);
-            Console.WriteLine($"You added {item} to your inventory.");
-        }
-
-        public void RemoveItem(string item)
-        {
-            if (Items.Contains(item))
-            {
-                Items.Remove(item);
-                Console.WriteLine($"You removed {item} from your inventory.");
-            }
-            else
-            {
-                Console.WriteLine($"You don't have {item} in your inventory.");
-            }
-        }
-
-        public void ShowInventory()
-        {
-            if (Items.Count == 0)
-            {
-                Console.WriteLine("Your inventory is empty.");
-            }
-            else
-            {
-                Console.WriteLine("Inventory:");
-                foreach (string item in Items)
-                {
-                    Console.WriteLine($"- {item}");
-                }
-            }
+            Console.WriteLine("========================================");
+            Console.WriteLine("          Text Adventure Game           ");
+            Console.WriteLine("========================================");
         }
     }
 }
