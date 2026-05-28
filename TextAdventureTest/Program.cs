@@ -20,6 +20,7 @@ namespace textAdventure2
             string playerName = GetPlayerName();
             Inventory inventory = new Inventory();
             Scenarios.FirstScenario(playerName);
+            Scenarios.SecondScenario(playerName, inventory);
 
             Console.WriteLine("\nEnd of game.");
         }

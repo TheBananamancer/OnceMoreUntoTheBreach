@@ -13,106 +13,50 @@ namespace textAdventure2
         {
             Console.WriteLine($"\n{playerName}, you find yourself at a crossroads.");
             Console.WriteLine("A dark forest lies to the north, a shimmering lake to the east, a field of wheat to the west, and a swamp to the south.");
-            Console.WriteLine("Which way do you go? (north/east/west/south)");
+            Console.WriteLine("Which direction do you choose? (north, east, west, south)");
 
-            string choice = Console.ReadLine().ToLower();
+            string choice = Console.ReadLine();
 
-            if (choice == North)
+            switch (choice.ToLower())
             {
-                Console.WriteLine("You enter the dark forest. It's eerily quiet, and the path ahead is unclear.");
-            }
-            else if (choice == East)
-            {
-                Console.WriteLine("You approach the shimmering lake. The water is crystal clear, and you can see fish swimming below.");
-            }
-            else if (choice == West)
-            {
-                Console.WriteLine("You walk into the field of wheat. The wind gently blows through the stalks.");
-            }
-            else if (choice == South)
-            {
-                Console.WriteLine("You cautiously step into the swamp. The ground is soft and muddy.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice. You remain at the crossroads.");
+                case North:
+                    Console.WriteLine("You enter the dark forest...");
+                    break;
+                case East:
+                    Console.WriteLine("You approach the shimmering lake...");
+                    break;
+                case West:
+                    Console.WriteLine("You walk into the field of wheat...");
+                    break;
+                case South:
+                    Console.WriteLine("You cautiously enter the swamp...");
+                    break;
+                default:
+                    Console.WriteLine("Invalid direction. You remain at the crossroads.");
+                    break;
             }
         }
 
-        public static void SecondScenario(string playerName)
+        public static void SecondScenario(string playerName, Inventory inventory)
         {
-            Console.WriteLine($"\n{playerName}, you are standing in front of a large, ancient oak tree.");
-            Console.WriteLine("You see a winding path leading up the hill and a dark cave entrance nearby.");
-            Console.WriteLine("Do you follow the path or enter the cave? (path/cave)");
+            Console.WriteLine($"\n{playerName}, you are walking along a path when you see a small cottage.");
+            Console.WriteLine("Do you enter the cottage? (yes/no)");
 
-            string choice = Console.ReadLine().ToLower();
-            const string Path = "path";
-            const string Cave = "cave";
+            string choice = Console.ReadLine();
 
-            if (choice == Path)
+            switch (choice.ToLower())
             {
-                Console.WriteLine("You start following the winding path up the hill. The view becomes increasingly stunning.");
-            }
-            else if (choice == Cave)
-            {
-                Console.WriteLine("You cautiously enter the dark cave. The air is cold and damp.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice. You remain by the oak tree, unsure of what to do.");");
-            }
-        }
-
-        public static void ThirdScenario(string playerName)
-        {
-            Console.WriteLine($"\n{playerName}, you arrive at a bustling town square.");
-            Console.WriteLine("You see a merchant selling goods, a group of people gathered around a storyteller, and a sign pointing towards a mysterious tower.");
-            Console.WriteLine("Do you visit the merchant, listen to the storyteller, or head to the tower? (merchant/storyteller/tower)");
-
-            string choice = Console.ReadLine().ToLower();
-            const string Merchant = "merchant";
-            const string Storyteller = "storyteller";
-            const string Tower = "tower";
-
-            if (choice == Merchant)
-            {
-                Console.WriteLine("You approach the merchant and browse their wares. You find a curious item that catches your eye.");
-            }
-            else if (choice == Storyteller)
-            {
-                Console.WriteLine("You listen to the storyteller's tale. It's a captivating story filled with adventure and magic.");
-            }
-            else if (choice == Tower)
-            {
-                Console.WriteLine("You head towards the mysterious tower. It looms tall and ominous in the distance.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice. You wander aimlessly in the town square.");
-            }
-        }
-
-        public static void FourthScenario(string playerName)
-        {
-            Console.WriteLine($"\n{playerName}, you stand before a rushing river.");
-            Console.WriteLine("A rickety bridge spans the river, and a small boat is tied to the bank.");
-            Console.WriteLine("Do you cross the bridge or take the boat? (bridge/boat)");
-
-            string choice = Console.ReadLine().ToLower();
-            const string Bridge = "bridge";
-            const string Boat = "boat";
-
-            if (choice == Bridge)
-            {
-                Console.WriteLine("You carefully cross the rickety bridge. It creaks and sways with each step.");
-            }
-            else if (choice == Boat)
-            {
-                Console.WriteLine("You untie the small boat and set off down the river. The current is strong.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice. You remain by the riverbank, contemplating your next move.");
+                case "yes":
+                    Console.WriteLine("You enter the cottage. It is dark and dusty.");
+                    Console.WriteLine("You find a rusty sword! You add it to your inventory.");
+                    inventory.AddItem("Rusty Sword");
+                    break;
+                case "no":
+                    Console.WriteLine("You continue along the path.");
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. You remain on the path.");
+                    break;
             }
         }
     }
