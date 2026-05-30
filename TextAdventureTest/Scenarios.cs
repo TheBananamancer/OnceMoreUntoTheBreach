@@ -77,5 +77,26 @@ namespace textAdventure2
                     break;
             }
         }
+
+        public static void FourthScenario(string playerName)
+        {
+            Console.WriteLine($"\n{playerName}, you reach a mountain pass.");
+            Console.WriteLine("A strong wind is blowing.");
+            Console.WriteLine("Do you proceed or turn back? (yes, no)");
+            string choice = Console.ReadLine();
+
+            switch (choice.ToLower())
+            {
+                case "yes":
+                    Console.WriteLine("You continue through the pass, battling the wind.");
+                    break;
+                case "no":
+                    Console.WriteLine("You turn back, seeking a safer route.");
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. The wind howls around you.");
+                    break;
+            }
+        }
     }
 }
