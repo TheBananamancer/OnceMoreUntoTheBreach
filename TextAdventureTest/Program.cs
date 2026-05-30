@@ -21,6 +21,8 @@ namespace textAdventure2
             Inventory inventory = new Inventory();
             Scenarios.FirstScenario(playerName);
             Scenarios.SecondScenario(playerName);
+            Scenarios.ThirdScenario(playerName);
+            Scenarios.FourthScenario(playerName);
         }
 
         static string GetPlayerName()
