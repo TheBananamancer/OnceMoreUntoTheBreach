@@ -20,21 +20,25 @@ namespace textAdventure2
             string playerName = GetPlayerName();
             Inventory inventory = new Inventory();
             Scenarios.FirstScenario(playerName);
-            Scenarios.SecondScenario(playerName, inventory);
-
-            Console.WriteLine("\nEnd of game.");
+            Scenarios.SecondScenario(playerName);
         }
 
         static string GetPlayerName()
         {
-            Console.Write("Enter your name: ");
-            return Console.ReadLine();
+            Console.WriteLine("What is your name, adventurer?");
+            string name = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("That is not a valid name.");
+                return GetPlayerName();
+            }
+            return name;
         }
 
         static void GameTitle()
         {
-            Console.WriteLine("\nWelcome to the Text Adventure Game!");
-            Console.WriteLine("==================================\n");
+            Console.WriteLine("Welcome to the Text Adventure Game!");
+            Console.WriteLine("----------------------------------\n");
         }
     }
 }
