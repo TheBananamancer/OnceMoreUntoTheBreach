@@ -20,45 +20,11 @@ namespace textAdventure2
             GameTitle();
             string playerName = GetPlayerName();
             Inventory inventory = new Inventory();
-            Scenarios.FirstScenario(playerName);
-
-            Console.WriteLine("\nWhat do you do?");
-            string action = Console.ReadLine().ToLower();
-
-            if (action == InventoryCommand)
-            {
-                inventory.ListInventory();
-            }
-
-            Scenarios.SecondScenario(playerName);
-
-            Console.WriteLine("\nWhat do you do?");
-            action = Console.ReadLine().ToLower();
-
-            if (action == InventoryCommand)
-            {
-                inventory.ListInventory();
-            }
-
-            Scenarios.ThirdScenario(playerName);
-
-            Console.WriteLine("\nWhat do you do?");
-            action = Console.ReadLine().ToLower();
-
-            if (action == InventoryCommand)
-            {
-                inventory.ListInventory();
-            }
-
-            Scenarios.FourthScenario(playerName);
-
-            Console.WriteLine("\nWhat do you do?");
-            action = Console.ReadLine().ToLower();
-
-            if (action == InventoryCommand)
-            {
-                inventory.ListInventory();
-            }
+            
+            PlayScenario(Scenarios.FirstScenario, playerName, inventory);
+            PlayScenario(Scenarios.SecondScenario, playerName, inventory);
+            PlayScenario(Scenarios.ThirdScenario, playerName, inventory);
+            PlayScenario(Scenarios.FourthScenario, playerName, inventory);
         }
 
         static void GameTitle()
@@ -69,7 +35,7 @@ namespace textAdventure2
         }
 
         static string GetPlayerName()
-        {\r
+        {
             Console.WriteLine("What is your name, adventurer?");
             string name = Console.ReadLine();
 
@@ -81,6 +47,25 @@ namespace textAdventure2
 
             Console.WriteLine($"\nWelcome, {name}!");
             return name;
+        }
+
+        static void PlayScenario(Action<string> scenario, string playerName, Inventory inventory)
+        {
+            scenario(playerName);
+            string action = GetPlayerAction(inventory);
+        }
+
+        static string GetPlayerAction(Inventory inventory)
+        {
+            Console.WriteLine("\nWhat do you do?");
+            string action = Console.ReadLine().ToLower();
+
+            if (action == InventoryCommand)
+            {
+                inventory.ListInventory();
+                return GetPlayerAction(inventory); // Ask again after listing inventory
+            }
+            return action;
         }
 
     }
