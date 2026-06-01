@@ -13,6 +13,7 @@ namespace textAdventure2
         private const string South = "south";
         private const string Yes = "yes";
         private const string No = "no";
+        private const string InventoryCommand = "inventory";
 
         static void Main(string[] args)
         {
@@ -20,27 +21,67 @@ namespace textAdventure2
             string playerName = GetPlayerName();
             Inventory inventory = new Inventory();
             Scenarios.FirstScenario(playerName);
-            Scenarios.SecondScenario(playerName);
-            Scenarios.ThirdScenario(playerName);
-            Scenarios.FourthScenario(playerName);
-        }
 
-        static string GetPlayerName()
-        {
-            Console.WriteLine("What is your name, adventurer?");
-            string name = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(name))
+            Console.WriteLine("\nWhat do you do?");
+            string action = Console.ReadLine().ToLower();
+
+            if (action == InventoryCommand)
             {
-                Console.WriteLine("That is not a valid name.");
-                return GetPlayerName();
+                inventory.ListInventory();
             }
-            return name;
+
+            Scenarios.SecondScenario(playerName);
+
+            Console.WriteLine("\nWhat do you do?");
+            action = Console.ReadLine().ToLower();
+
+            if (action == InventoryCommand)
+            {
+                inventory.ListInventory();
+            }
+
+            Scenarios.ThirdScenario(playerName);
+
+            Console.WriteLine("\nWhat do you do?");
+            action = Console.ReadLine().ToLower();
+
+            if (action == InventoryCommand)
+            {
+                inventory.ListInventory();
+            }
+
+            Scenarios.FourthScenario(playerName);
+
+            Console.WriteLine("\nWhat do you do?");
+            action = Console.ReadLine().ToLower();
+
+            if (action == InventoryCommand)
+            {
+                inventory.ListInventory();
+            }
         }
 
         static void GameTitle()
         {
-            Console.WriteLine("Welcome to the Text Adventure Game!");
-            Console.WriteLine("----------------------------------\n");
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("Welcome to Text Adventure!");
+            Console.WriteLine("-------------------------------------");
         }
+
+        static string GetPlayerName()
+        {\r
+            Console.WriteLine("What is your name, adventurer?");
+            string name = Console.ReadLine();
+
+            while (string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("Please enter a valid name:");
+                name = Console.ReadLine();
+            }
+
+            Console.WriteLine($"\nWelcome, {name}!");
+            return name;
+        }
+
     }
 }
