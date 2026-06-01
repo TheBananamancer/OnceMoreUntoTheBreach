@@ -26,7 +26,7 @@ namespace textAdventure2
             }
         }
 
-        public void ShowInventory()
+        public void ListInventory()
         {
             if (items.Count == 0)
             {
