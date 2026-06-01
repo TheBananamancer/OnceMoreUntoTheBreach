@@ -15,8 +15,10 @@ namespace textAdventure2
         private const string No = "no";
         private const string InventoryCommand = "inventory";
 
+        static int playerHitPoints = 100;
+
         static void Main(string[] args)
-        {
+        {\r
             GameTitle();
             string playerName = GetPlayerName();
             Inventory inventory = new Inventory();
